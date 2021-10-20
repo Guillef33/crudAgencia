@@ -8,13 +8,18 @@ include('modules/header.php');
 <section class="listado-regiones">
     <div class="container">
 
-        <table class="table table-striped">
+        <h1>Panel de administración de regiones</h1>
+
+        <table class="table table-borderless table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Región</th>
-                    <th scope="col">Modificar</th>
-                    <th scope="col">Eliminar</th>
+                    <th>#</th>
+                    <th>Región</th>
+                    <th colspan="2">
+                        <a href="formAgregarRegionView.php" class="btn btn-outline-secondary">
+                            Agregar <i class="far fa-plus-square ml-1"></i>
+                        </a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
