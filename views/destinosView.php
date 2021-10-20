@@ -19,7 +19,7 @@ include('modules/header.php');
                 <th>Asientos</th>
                 <th>Disponibles</th>
                 <th colspan="2">
-                    <a href="formAgregarDestino.php" class="btn btn-outline-secondary">
+                    <a href="formAgregarDestinoView.php" class="btn btn-outline-secondary">
                         Agregar <i class="far fa-plus-square ml-1"></i>
                     </a>
                 </th>

@@ -34,4 +34,13 @@ class RegionesController {
             $mensaje = 'Región ' . $Region->getRegNombre() . ' eliminada correctamente';
         }
     }
+
+    public static function listaSelectRegiones ()  {
+        $regiones = RegionesModel::vistaRegionesModel();
+        foreach ($regiones as $region) {
+            echo '
+        <option value="'. $region['regID'] .'">'. $region['regNombre '] .'</option>';
+        }
+
+    }
 }
