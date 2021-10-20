@@ -3,6 +3,7 @@ $title = 'Listado de regiones';
 include('../models/regionesModel.php');
 include('../controllers/regionesController.php');
 include('modules/header.php');
+// Al modificar no modificar, creo que no se esta llamando a la funcion modificar desde el controller.
 ?>
 
 <section class="listado-regiones">

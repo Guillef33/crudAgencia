@@ -27,5 +27,5 @@ $chequeo = $Region->modificarRegion();
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'modules/footer.php';
 ?>
