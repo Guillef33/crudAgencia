@@ -9,8 +9,8 @@ $chequeo = $Region->eliminarRegion();
 $css = 'danger';
 $mensaje = 'No se pudo eliminar la región';
 if ($chequeo) {
-    $css = 'success';
-    $mensaje = 'Región ' . $Region->getRegNombre() . ' eliminada correctamente';
+   $css = 'success';
+   $mensaje = 'Región ' . $Region->getRegNombre() . ' eliminada correctamente';
 }
 
 ?>
@@ -18,6 +18,10 @@ if ($chequeo) {
 <main class="container">
 
     <h1>Baja de una región</h1>
+
+    <?php
+  //  regionesController::vistaEliminarRegion();
+    ?>
 
     <div class="alert alert-<?= $css ?>">
         <?= $mensaje ?>

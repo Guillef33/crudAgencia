@@ -23,4 +23,15 @@ class RegionesController {
             ';
         }
     } 
+
+    public static function vistaEliminarRegion () {
+        $regiones = RegionesModel::eliminarRegion();
+
+        $css = 'danger';
+        $mensaje = 'No se pudo eliminar la región';
+        if ($chequeo) {
+            $css = 'success';
+            $mensaje = 'Región ' . $Region->getRegNombre() . ' eliminada correctamente';
+        }
+    }
 }
