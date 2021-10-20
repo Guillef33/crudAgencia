@@ -4,17 +4,17 @@ class destinosController
 {
     public static function vistaDestinosController()
     {
-        $destinos = DestinoModel::vistaDestinosModel();
+        $destinos = DestinosModel::vistaDestinosModel();
 
         foreach ( $destinos as $destino ){
-            
+            echo 
             '<tr>
-                <td>'.$destino['destID '] .'</td>
-                <td>' . $destino['destNombre '] .'</td>
-                <td>'. $destino['regNombre '] .'</td>
-                <td>$'. $destino['destPrecio '] .'</td>
-                <td>'. $destino['destAsientos '] .'</td>
-                <td>'. $destino['destDisponibles '] .'</td>
+                <td>'.$destino['destID'] .'</td>
+                <td>' . $destino['destNombre'] .'</td>
+                <td>'. $destino['regNombre'] .'</td>
+                <td>$'. $destino['destPrecio'] .'</td>
+                <td>'. $destino['destAsientos'] .'</td>
+                <td>'. $destino['destDisponibles'] .'</td>
                 <td>
                     <a href="formModificarDestino.php?destID='. $destino['destID'] .'" class="btn btn-outline-secondary">
                         Modificar <i class="far fa-edit ml-1"></i>

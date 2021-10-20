@@ -2,7 +2,7 @@
 
 require_once('conexion.php');
 
-class DestinoModel
+class DestinosModel
 {
     private $destID;
     private $destNombre;
@@ -15,17 +15,16 @@ class DestinoModel
 
     public static function vistaDestinosModel()
     {
-        $link = Conexion::conectar();
-        $sql = "SELECT destID, destNombre, destPrecio, 
+        $cmd = Conexion::conectar();
+        $cmd = $cmd->prepare("SELECT destID, destNombre, destPrecio, 
                            destAsientos, destDisponibles, 
                            destActivo, 
                            r.regID, r.regNombre 
                         FROM destinos d 
                         INNER JOIN regiones r 
-                        ON d.regID = r.regID";
-        $stmt = $link->prepare($sql);
-        $stmt->execute();
-        $destinos = $stmt->fetchAll();
+                        ON d.regID = r.regID");
+        $cmd->execute();
+        $destinos = $cmd->fetchAll();
         return $destinos;
     }
 

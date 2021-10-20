@@ -3,8 +3,6 @@ $title = 'Listado de Destino';
 include('../models/destinosModel.php');
 include('../controllers/destinosController.php');
 include('modules/header.php');
-// $Destino = new Destino;
-// $destinos = $Destino->listarDestinos();
 
 ?>
 
@@ -37,5 +35,5 @@ include('modules/header.php');
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'modules/footer.php';
 ?>
