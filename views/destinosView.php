@@ -27,6 +27,10 @@ include('modules/header.php');
         </thead>
         <tbody>
             <?php
+            // instanciamos el objeto y luego llamamos al metodo (no estatico)
+            // $destino = new destinosController;
+            // $destino->vistadestinosController();
+
             destinosController::vistaDestinosController();
             ?>
         </tbody>
