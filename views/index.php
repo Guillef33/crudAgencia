@@ -1,8 +1,6 @@
 <?php
-
-$title = 'Inicio';
-include('models/conexion.php');
-include('views/modules/header.php');
+$title = 'Bienvenido region';
+include('modules/header.php');
 
 ?>
 
@@ -23,7 +21,7 @@ include('views/modules/header.php');
         <p>Ver Regiones donde viajan</p>
         <p>Ver destinos</p>
         <p>Sacar un nuevo ticket</p>
-        
+
 
 
 
@@ -33,5 +31,5 @@ include('views/modules/header.php');
 
 
 <?php
-include('views/modules/footer.php');
+include('modules/footer.php');
 ?>
