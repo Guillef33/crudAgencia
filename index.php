@@ -4,6 +4,7 @@ $title = 'Inicio';
 include('models/conexion.php');
 include('views/modules/header.php');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +24,9 @@ include('views/modules/header.php');
         <p>Ver Regiones donde viajan</p>
         <p>Ver destinos</p>
         <p>Sacar un nuevo ticket</p>
-        
 
 
+</main>
 
 </body>
 
