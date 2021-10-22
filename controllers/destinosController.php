@@ -29,4 +29,34 @@ class destinosController
         }
     }
 
+    public static function vistaCardsDestinos()
+    {
+        $destinos = DestinosModel::vistaDestinosModel();
+
+        foreach ($destinos as $destino) {
+            echo '
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="' . $destino['destID'] . '">
+                    <div class="card-body">
+                        <h5 class="card-title">' . $destino['destNombre'] . '</h5>
+                        <p class="card-text">Asientos disponibles: '. $destino['destDisponibles']. '</p>
+                        <p class="card-text">Precio: ' . $destino['destPrecio'] . '</p>
+                   </div>
+                </div>
+            </div>';
+        }
+    }
+
+    public static function optionListaDestinos()
+    {
+        $destinos = DestinosModel::vistaDestinosModel();
+
+        foreach ($destinos as $destino) {
+            echo '
+                <option>' . $destino['destNombre'] . '</option>';
+        }
+    }
+
+
 }
