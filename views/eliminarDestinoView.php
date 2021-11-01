@@ -1,5 +1,5 @@
 <?php
-$title = 'Eliminar region';
+$title = 'Eliminar destino';
 include('../models/destinosModels.php');
 include('../controllers/destinosController.php');
 include('modules/header.php');
@@ -10,7 +10,7 @@ $css = 'danger';
 $mensaje = 'No se pudo eliminar el destino';
 if ($chequeo) {
     $css = 'success';
-    $mensaje = 'Destino ' . $Destino->getDestNombre() . ' eliminada correctamente';
+    $mensaje = 'Destino ' . $Destino->getDestNombre() . ' eliminado correctamente';
 }
 
 ?>
