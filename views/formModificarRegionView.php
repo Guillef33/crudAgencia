@@ -3,8 +3,9 @@ $title = 'Modificar region';
 include('../models/regionesModel.php');
 include('../controllers/regionesController.php');
 include('modules/header.php');
-$Region = new RegionesModel;
-$chequeo = $Region->verRegionPorID();
+//$Region = new RegionesModel;
+$region = RegionesController::vistaRegionPorId();
+
 ?>
 
 <main class="container">

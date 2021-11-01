@@ -25,7 +25,7 @@ class RegionesController
             ';
         }
     }
-
+    /*
     public static function vistaEliminarRegion()
     {
         $regiones = RegionesModel::eliminarRegion();
@@ -36,7 +36,7 @@ class RegionesController
             $css = 'success';
             $mensaje = 'Región ' . $Region->getRegNombre() . ' eliminada correctamente';
         }
-    }
+    }*/
 
     public static function listaSelectRegiones()
     {
@@ -73,5 +73,11 @@ class RegionesController
             </div>';
         }
     }
-}
 
+    public static function vistaRegionPorId()
+    {
+        $regID = $_GET['regID'];
+        $region = RegionesModel::verRegionPorID($regID);
+        return $region;
+    }
+}

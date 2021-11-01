@@ -14,7 +14,7 @@ $Destino->verDestinoPorID();
     <h1>Confirmación de baja de un destino</h1>
 
     <div class="alert bg-light border border-white shadow round col-8 mx-auto p-4">
-        <form action="eliminarDestino.php" method="post">
+        <form action="eliminarDestinoView.php" method="post">
             <soan class="lead">Se eliminará el destino <?= $Destino->getDestNombre(); ?> </soan>
             <br>
             Region: <?= $Destino::getRegNombre() ?> <br>

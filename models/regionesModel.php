@@ -1,7 +1,8 @@
 <?php
 require_once('conexion.php');
 
-class RegionesModel{
+class RegionesModel
+{
 
     private $regID;
     private $regNombre;
@@ -15,9 +16,9 @@ class RegionesModel{
         return $regiones;
     }
 
-    public function verRegionPorID()
+    public static function verRegionPorID($regID)
     {
-        $regID = $_GET['regID'];
+        // $regID = $_GET['regID']; // esto deberia ir en el controller 
         $link = Conexion::conectar();
         $sql = "SELECT regID, regNombre
                         FROM regiones
@@ -26,10 +27,11 @@ class RegionesModel{
         $stmt->bindParam(':regID', $regID, PDO::PARAM_INT);
         $stmt->execute();
         $datosRegion = $stmt->fetch();
+        return $datosRegion; // te devuelve la fila obtenida de la consulta
         //registramos atributos del objeto
-        $this->setRegID($datosRegion['regID']);
-        $this->setRegNombre($datosRegion['regNombre']);
-        return $this;
+        // $this->setRegID($datosRegion['regID']); // le setea el valor al atributo ID del objeto
+        //$this->setRegNombre($datosRegion['regNombre']); // le setea un nombre (valor) al atributo regNombre del objeto
+        // return $this; // retorna el objeto con los atributos seteados
     }
 
     public function agregarRegion()
@@ -74,7 +76,7 @@ class RegionesModel{
     public function confirmarBaja()
     {
         $regID = $_GET['regID'];
-        $this->verRegionPorID();
+        //$this->verRegionPorID();
         $link = Conexion::conectar();
         $sql = "SELECT 1 FROM destinos 
                         WHERE regID = :regID";
@@ -137,7 +139,4 @@ class RegionesModel{
     {
         $this->regNombre = $regNombre;
     }
-
 }
-
-
