@@ -1,37 +1,60 @@
 <?php
+$title = 'Bienvenido a tu agencia de viajes';
+include('../models/conexion.php'); // tuve que agregar esto porque no encontraba la rutaraiz
+include('modules/header.php');
+include('../models/regionesModel.php');
+include('../models/destinosModel.php');
+include('../controllers/regionesController.php');
+include('../controllers/destinosController.php');
+// $Regiones = new RegionesModel;
+// $Regiones->vistaRegionesModel();
 
-$title = 'Inicio';
-include('models/conexion.php');
-include('views/modules/header.php');
 
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    .card {
+        width: 500px;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    select {
+        height: 40px !important;
+    }
+</style>
 
-<body>
-    <main class="container">
-        <h2>Que quiere hacer hoy</h2>
+<main class="container">
+    <form class="buscador" action="buscarVuelosView.php">
+        <div style="display: flex;">
+            <div>
+                <p>Desde</p>
+                <select>
+                    <?php
+                    regionesController::optionListaRegiones();
+                    ?>
+                </select>
+            </div>
+            <div>
+                <p>Hacia</p>
+                <select>
+                    <?php
+                    destinosController::optionListaDestinos();
+                    ?>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger mt-4">Buscar Vuelos</button>
 
-        <p>Ver Regiones donde viajan</p>
-        <p>Ver destinos</p>
-        <p>Sacar un nuevo ticket</p>
-
+    </form>
 
 </main>
 
+
+
 </body>
 
-</html>
 
+</html>
 
 <?php
 include('views/modules/footer.php');

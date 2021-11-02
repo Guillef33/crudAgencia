@@ -20,7 +20,7 @@ include('modules/header.php');
 
     <div class="alert bg-light border border-white shadow round col-8 mx-auto p-4">
 
-        <form action="modificarDestino.php" method="post">
+        <form method="post">
 
             <div class="form-group">
                 <label for="destNombre">Nombre del Destino:</label>

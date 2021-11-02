@@ -28,31 +28,56 @@ class DestinosModel
         return $destinos;
     }
 
-    public function verDestinoPorID()
+    // metodo para luego enviar al controller y poder ver destino por ID
+    public static function verDestinosPorID($destID)
     {
-        $destID = $_GET['destID'];
+        // $regID = $_GET['regID']; // esto deberia ir en el controller 
         $link = Conexion::conectar();
-        $sql = "SELECT
-                        destID, destNombre, 
-                        d.regID, regNombre,
-                        destPrecio, destAsientos, destDisponibles
-                     FROM destinos d, regiones r
-                     WHERE d.regID = r.regID
-                       AND destID = :destID";
+        $sql = "SELECT destID, destNombre, 
+                       d.regID, regNombre,
+                       destPrecio, destAsientos, destDisponibles
+                      FROM destinos d, regiones r
+                      WHERE d.regID = r.regID
+                        AND destID = :destID";
         $stmt = $link->prepare($sql);
         $stmt->bindParam(':destID', $destID, PDO::PARAM_INT);
         $stmt->execute();
-        $destino = $stmt->fetch();
-        //registrar todos los atributos
-        $this->setDestID($destino['destID']);
-        $this->setDestNombre($destino['destNombre']);
-        $this->setRegID($destino['regID']);
-        self::setRegNombre($destino['regNombre']);
-        $this->setDestPrecio($destino['destPrecio']);
-        $this->setDestAsientos($destino['destAsientos']);
-        $this->setDestDisponibles($destino['destDisponibles']);
-        return $this;
+        $datosDestino = $stmt->fetch();
+        return $datosDestino;
+
+        // te devuelve la fila obtenida de la consulta
+        //registramos atributos del objeto
+        // $this->setRegID($datosRegion['regID']); // le setea el valor al atributo ID del objeto
+        //$this->setRegNombre($datosRegion['regNombre']); // le setea un nombre (valor) al atributo regNombre del objeto
+        // return $this; // retorna el objeto con los atributos seteados
     }
+
+
+    // public function verDestinoPorID()
+    // {
+    //     $destID = $_GET['destID'];
+    //     $link = Conexion::conectar();
+    //     $sql = "SELECT
+    //                     destID, destNombre, 
+    //                     d.regID, regNombre,
+    //                     destPrecio, destAsientos, destDisponibles
+    //                  FROM destinos d, regiones r
+    //                  WHERE d.regID = r.regID
+    //                    AND destID = :destID";
+    //     $stmt = $link->prepare($sql);
+    //     $stmt->bindParam(':destID', $destID, PDO::PARAM_INT);
+    //     $stmt->execute();
+    //     $destino = $stmt->fetch();
+    //     //registrar todos los atributos
+    //     $this->setDestID($destino['destID']);
+    //     $this->setDestNombre($destino['destNombre']);
+    //     $this->setRegID($destino['regID']);
+    //     self::setRegNombre($destino['regNombre']);
+    //     $this->setDestPrecio($destino['destPrecio']);
+    //     $this->setDestAsientos($destino['destAsientos']);
+    //     $this->setDestDisponibles($destino['destDisponibles']);
+    //     return $this;
+    // }
 
     public function agregarDestino()
     {

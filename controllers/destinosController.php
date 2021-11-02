@@ -58,5 +58,28 @@ class destinosController
         }
     }
 
+    // FUNCION PARA PINTAR LOS INPUT DEL FORM, PARA LUEGO EDITAR EL DESTINO
+    public static function editarDestinoPorId()
+    {
+        $destID = $_GET['destID'];
+        $destino = DestinosModel::verDestinosPorID($destID);
+
+        // ARMAMOS EL FORMULARIO DEL VIEW
+
+        echo '
+            <div class="form-group">
+                <label for="regNombre">Nombre de la región:</label>
+                <input type="text" name="regNombre" value="' . $region['regNombre'] . '" id="regNombre" class="form-control">
+                <input type="hidden" name="regID" value="' . $region['regID'] . '">
+            </div>
+        
+            <button type="submit" class="btn btn-dark">Modificar región</button>
+            <a href="regionesView.php" class="btn btn-outline-secondary">
+                Volver a panel de regiones
+            </a>
+
+            ';
+    }
+
 
 }

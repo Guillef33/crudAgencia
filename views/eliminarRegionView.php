@@ -28,7 +28,7 @@ if ($chequeo) {
         <a href="regionesView.php" class="btn btn-light ml-2">
             volver a panel
         </a>
-    </div>
+    </div>  
 
 </main>
 
