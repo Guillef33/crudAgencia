@@ -5,7 +5,7 @@ class Conexion {
     public static function conectar() {
         try {
             $conexion = new PDO (
-                'mysql:host=localhost;dbname=agencia',
+                'mysql:host=localhost;dbname=agencia;charset=utf8',
                 'root',
                 ''
             );
@@ -20,7 +20,7 @@ class Conexion {
     }
 }
 
-define('RUTARAIZ', 'http://localhost/crudAgencia/');
+define('RUTARAIZ', 'http://localhost/CursoPhp/CRUD/');
 
 
 ?>

@@ -74,10 +74,46 @@ class RegionesController
         }
     }
 
-    public static function vistaRegionPorId()
+    // FUNCION PARA PINTAR LOS INPUT DEL FORM, PARA LUEGO EDITAR REGION
+    public static function editarRegionPorId()
     {
         $regID = $_GET['regID'];
         $region = RegionesModel::verRegionPorID($regID);
-        return $region;
+
+        // ARMAMOS EL FORMULARIO DEL VIEW
+
+        echo '
+            <div class="form-group">
+                <label for="regNombre">Nombre de la región:</label>
+                <input type="text" name="regNombre" value="'.$region['regNombre'].'" id="regNombre" class="form-control">
+                <input type="hidden" name="regID" value="'.$region['regID'].'">
+            </div>
+        
+            <button type="submit" class="btn btn-dark">Modificar región</button>
+            <a href="regionesView.php" class="btn btn-outline-secondary">
+                Volver a panel de regiones
+            </a>
+
+            ';
+
+    }
+
+    // FUNCION PARA EDITAR DIRECTAMENTE LA REGION SELECCIONADA
+    public function actualizarUsuarioController(){
+
+        if(isset($_POST["regID"])){
+            $idRegion = $_POST['regID'];
+            $regionName = $_POST['regNombre'];
+
+            $resultado = RegionesModel::modificarRegion($idRegion,$regionName);
+
+            if($resultado == 'success'){
+                echo 'Se ha modificado la region correctamente.';
+                header('Location:regionesView.php');
+            }else{
+                echo 'Ha ocurrido un error al intentar modificar la region ' . $regionName . ' con el siguiente id: '. $idRegion;
+            }
+        }
+
     }
 }

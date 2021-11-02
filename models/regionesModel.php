@@ -27,12 +27,16 @@ class RegionesModel
         $stmt->bindParam(':regID', $regID, PDO::PARAM_INT);
         $stmt->execute();
         $datosRegion = $stmt->fetch();
-        return $datosRegion; // te devuelve la fila obtenida de la consulta
+        return $datosRegion; 
+        
+        // te devuelve la fila obtenida de la consulta
         //registramos atributos del objeto
         // $this->setRegID($datosRegion['regID']); // le setea el valor al atributo ID del objeto
         //$this->setRegNombre($datosRegion['regNombre']); // le setea un nombre (valor) al atributo regNombre del objeto
         // return $this; // retorna el objeto con los atributos seteados
     }
+
+
 
     public function agregarRegion()
     {
@@ -53,10 +57,9 @@ class RegionesModel
         }
         return false;
     }
-    public function modificarRegion()
+
+    public static function modificarRegion($regID,$regNombre)
     {
-        $regID = $_POST['regID'];
-        $regNombre = $_POST['regNombre'];
         $link = Conexion::conectar();
         $sql = "UPDATE regiones
                            SET regNombre = :regNombre 
@@ -66,11 +69,11 @@ class RegionesModel
         $stmt->bindParam(':regNombre', $regNombre, PDO::PARAM_STR);
         if ($stmt->execute()) {
             //registramos los atributos de objeto
-            $this->setRegID($regID);
-            $this->setRegNombre($regNombre);
-            return $this; //objeto Region
+            /*$this->setRegID($regID);
+            $this->setRegNombre($regNombre);*/
+            return 'success';
         }
-        return false;
+        return 'error';
     }
 
     public function confirmarBaja()
